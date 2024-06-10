@@ -151,11 +151,11 @@ while True:
             last_buy = st.session_state.all_data[stock].sort_values('Date')['Price'].values[-1] if not st.session_state.all_data[stock].empty else 0
             pnl = (cmp-buy_price)/buy_price if buy_price != 0 else 0
             multi_fac = -1*round(pnl*1000,2)
-            amount = 10000
+            amount = 50000
             qty = math.ceil(amount / cmp)
             down_lb = round((cmp - last_buy)/last_buy * 100,2) if last_buy != 0 else 0
             lth = lifetime_high(st.session_state.secrets["connections"]["gsheets"]["worksheets"][stock])
-            if down_lb <= -5:
+            if down_lb <= -10:
                 new_res = pd.DataFrame({'Stock': [stock], 'Down%':[round(pnl*100,2)], "Down_LTH%": [round((cmp - lth)/lth * 100,2)], "LTH": [lth], 'Down_LB%':[down_lb],'CMP':[cmp], 'Amount': [amount], 'Qty': [qty], 'LB': [last_buy]})
                 buy = pd.concat([buy,new_res],ignore_index=True)
             if buy.empty:
