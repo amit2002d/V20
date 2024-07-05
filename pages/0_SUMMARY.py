@@ -187,6 +187,6 @@ while True:
         col1.dataframe(styled_res_individual_1, use_container_width=True, height=(numRows + 1) * 35 + 3)
         col2.dataframe(styled_res_individual_2, use_container_width=True, height=(numRows + 2) * 35 + 3)
         buy_head.subheader('Buy')
-        buy_Stock.dataframe(buy.sort_values('Down_LTH%'), use_container_width=True)
+        buy_Stock.dataframe(buy.sort_values('Down_LTH%').style.format(format_dict2), use_container_width=True)
         sell_head.subheader('Sell')
         sell_Stock.dataframe(styled_res_df, use_container_width=True)
