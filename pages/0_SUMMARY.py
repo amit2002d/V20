@@ -165,7 +165,7 @@ while True:
                 total = 0
             investment_individual = pd.concat([investment_individual,pd.DataFrame({"Stock":[stock], 'CMP':[cmp],'Buy Avg':[buy_price], 'Qty':[(st.session_state.all_data[stock]['Qty.']).sum()],'Total Investment':[total_value],'Current Value':[current_value],'ROI':[round((pnl) * 100,2)],'Gain':[round(current_value - total_value,2)]})],ignore_index=True)
         total = buy['Amount'].sum()
-        format_dict2 = {'Price': '{:.2f}', 'LTH':'{:.2f}','Qty.': '{:.2f}', 'CMP': '{:.2f}', 'Gain%': '{:.2f}', 'Amount': '{:.2f}', 'Buy Value': '{:.2f}', 'Current Value': '{:.2f}'}
+        format_dict2 = {'Price': '{:.2f}','Down_LTH%':'{:.2f}', 'LTH':'{:.2f}','Qty.': '{:.2f}', 'CMP': '{:.2f}', 'Gain%': '{:.2f}', 'Amount': '{:.2f}', 'Buy Value': '{:.2f}', 'Current Value': '{:.2f}'}
         if not sell.empty:
             sell.drop(columns=['Date'], axis = 1, inplace=True) 
         resultant_df_round = sell.round(2)
